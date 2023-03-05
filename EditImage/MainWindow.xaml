@@ -1,0 +1,86 @@
+﻿<Window x:Class="EditImage.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:EditImage"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="600" Width="1200" WindowStartupLocation="CenterScreen" >
+    <Grid>
+        <Canvas>
+            <Menu>
+                <MenuItem Header="File" FontSize="15">
+                    <MenuItem Header="New" FontSize="15">
+                        <MenuItem.Icon>
+                            <Image Source="icons/newfile.png"></Image>
+                        </MenuItem.Icon>
+                    </MenuItem>
+                    <MenuItem Header="Open" FontSize="15">
+                        <MenuItem.Icon>
+                            <Image Source="icons/open.png"></Image>
+                        </MenuItem.Icon>
+                    </MenuItem>
+                    <MenuItem Header="Save" FontSize="15">
+                        <MenuItem.Icon>
+                            <Image Source="icons/save.png"></Image>
+                        </MenuItem.Icon>
+                    </MenuItem>
+                    <MenuItem Header="Save As" FontSize="15">
+                        <MenuItem.Icon>
+                            <Image Source="icons/saveas.png"></Image>
+                        </MenuItem.Icon>
+                    </MenuItem>
+                    <MenuItem Header="Exit" FontSize="15">
+                        <MenuItem.Icon>
+                            <Image Source="icons/exit.png"></Image>
+                        </MenuItem.Icon>
+                    </MenuItem>
+                </MenuItem>
+                <MenuItem Header="Edit" FontSize="15">
+                    <MenuItem Header="Add File" FontSize="15">
+                        <MenuItem.Icon>
+                            <Image Source="icons/addfile.png"></Image>
+                        </MenuItem.Icon>
+                    </MenuItem>
+                    <MenuItem Header="Add Folder" FontSize="15">
+                        <MenuItem.Icon>
+                            <Image Source="icons/addfolder.png"></Image>
+                        </MenuItem.Icon>
+                    </MenuItem>
+                </MenuItem>
+                <MenuItem Header="View" FontSize="15">
+                    <MenuItem Header="Tiles" FontSize="15"></MenuItem>
+                    <MenuItem Header="Small Icons" FontSize="15"></MenuItem>
+                    <MenuItem Header="Details" FontSize="15"></MenuItem>
+                </MenuItem>
+                <MenuItem Header="About" FontSize="15"></MenuItem>
+            </Menu>
+        </Canvas>
+        <ListBox Margin="0,30,0,0" BorderThickness="0" Name="photoslistBox" Background="Transparent" ItemsSource="{Binding Images}" ScrollViewer.HorizontalScrollBarVisibility="Disabled">
+            <ListBox.ItemsPanel>
+                <ItemsPanelTemplate>
+                    <WrapPanel  Orientation="Horizontal"></WrapPanel>
+                </ItemsPanelTemplate>
+            </ListBox.ItemsPanel>
+            <ListBox.ItemTemplate>
+                <DataTemplate>
+                    <Border Background="Transparent" BorderThickness="0">
+                        <Grid Background="Transparent" Margin="0,0,8,0" Width="500" Height="300">
+                            <TextBox TextWrapping="Wrap" Foreground="White" FontSize="15" FontWeight="ExtraBlack" BorderThickness="0" HorizontalAlignment="Center" Background="Transparent" Text="{Binding ImageName}"></TextBox>
+                            <Label Background="Transparent" HorizontalContentAlignment="Center" Name="imageLbl" Height="200" Margin="46,50,37,50">
+                                <Image Stretch="Uniform" Name="image" Source="{Binding ImagePath}"></Image>
+                            </Label>
+                        </Grid>
+                    </Border>
+                </DataTemplate>
+            </ListBox.ItemTemplate>
+        </ListBox>
+        <Grid.Background>
+            <LinearGradientBrush>
+                <GradientStop Color="#7B3F00" Offset="0"></GradientStop>
+                <GradientStop Color="#C2B280" Offset="1"></GradientStop>
+            </LinearGradientBrush>
+        </Grid.Background>
+        
+    </Grid>
+</Window>
