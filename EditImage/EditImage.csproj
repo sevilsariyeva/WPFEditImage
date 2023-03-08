@@ -139,5 +139,16 @@
     <Resource Include="icons\save.png" />
     <Resource Include="icons\saveas.png" />
   </ItemGroup>
+  <ItemGroup>
+    <Resource Include="icons\pause.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="icons\play.png" />
+  </ItemGroup>
+  <ItemGroup />
+  <ItemGroup>
+    <Resource Include="icons\back.png" />
+    <Resource Include="icons\forward.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
+using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
@@ -17,11 +19,27 @@ namespace EditImage
     /// <summary>
     /// Interaction logic for ImageWindow.xaml
     /// </summary>
-    public partial class ImageWindow : Window
+    public partial class ImageWindow : Window,INotifyPropertyChanged
     {
-        public ImageWindow()
+        private string path;
+
+        public string Path
         {
-            InitializeComponent();
+            get { return path; }
+            set { path = value; }
         }
+        public event PropertyChangedEventHandler PropertyChanged;
+        public void OnPropertyChanged([CallerMemberName] string name = null)
+        {
+            PropertyChangedEventHandler handler = PropertyChanged;
+            if (handler != null)
+                handler(this, new PropertyChangedEventArgs(name));
+        }
+        public ImageWindow()
+        {           
+            InitializeComponent();
+            this.DataContext = this;
+        }
+
     }
 }

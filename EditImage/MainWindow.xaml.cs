@@ -1,6 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
+using System.ComponentModel;
 using System.Linq;
+using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
@@ -18,9 +21,9 @@ namespace EditImage
     /// <summary>
     /// Interaction logic for MainWindow.xaml
     /// </summary>
-    public partial class MainWindow : Window
+    public partial class MainWindow : Window,INotifyPropertyChanged
     {
-        public List<Image> Images { get; set; } = new List<Image>
+        public ObservableCollection<Image> Images { get; set; } = new ObservableCollection<Image>
         {
             new Image
             {
@@ -73,10 +76,57 @@ namespace EditImage
                 ImagePath="images/thescream.jpg"
             },
         };
+        private int width;
+
+        public int ImageWidth
+        {
+            get { return width; }
+            set { width = value; OnPropertyChanged(); }
+        }
+        private int height;
+
+        public int ImageHeight
+        {
+            get { return height; }
+            set { height = value; OnPropertyChanged(); }
+        }
+        public event PropertyChangedEventHandler PropertyChanged;
+        public void OnPropertyChanged([CallerMemberName] string name = null)
+        {
+            PropertyChangedEventHandler handler = PropertyChanged;
+            if (handler != null)
+                handler(this, new PropertyChangedEventArgs(name));
+        }
         public MainWindow()
         {
             InitializeComponent();
+            ImageHeight = 200;
+            ImageWidth = 100;
             this.DataContext = this;
+        }
+        public bool TilesClicked { get; set; } = false;
+        private void MenuItem_Click(object sender, RoutedEventArgs e)
+        {
+            if (!TilesClicked)
+            {
+                ImageWidth = 50;
+                ImageHeight = 100;
+            }
+            TilesClicked = !TilesClicked;
+        }
+
+        private void imageLbl_MouseDoubleClick(object sender, MouseButtonEventArgs e)
+        {
+            ImageWindow imageWindow = new ImageWindow();
+            var item = photoslistBox.SelectedItem as Image;
+            imageWindow.WindowStartupLocation = WindowStartupLocation.CenterScreen;
+            imageWindow.Path = item.ImagePath;
+            imageWindow.ShowDialog();
+        }
+
+        private void photoslistBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+
         }
     }
 }

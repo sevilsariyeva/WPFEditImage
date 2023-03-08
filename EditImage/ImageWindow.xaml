@@ -5,8 +5,57 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:EditImage"
         mc:Ignorable="d"
-        Title="ImageWindow" Height="450" Width="800">
+        Title="ImageWindow" Height="550" Width="1000">
     <Grid>
-        
+        <Grid Name="secondGrid">
+            <Label HorizontalContentAlignment="Center">
+                <Image  Name="secondImage" Source="{Binding Path}" ></Image>
+            </Label>
+            <Button BorderThickness="0" Width="80" Height="80" HorizontalAlignment="Left" VerticalAlignment="Top">
+                <Button.Background>
+                    <ImageBrush ImageSource="icons/back.png" ></ImageBrush>
+                </Button.Background>
+            </Button>
+            <Button BorderThickness="0" Width="80" Height="80" VerticalAlignment="Bottom" Margin="150,0,0,0">
+                <Button.Resources>
+                    <Style TargetType="Border">
+                        <Setter Property="CornerRadius" Value="50"></Setter>
+                    </Style>
+                </Button.Resources>
+                <Button.Background>
+                    <ImageBrush ImageSource="icons/play.png" ></ImageBrush>
+                </Button.Background>
+            </Button>
+            <Button BorderThickness="0" Width="80" Height="80" VerticalAlignment="Bottom" Margin="0,0,150,0">
+                <Button.Resources>
+                    <Style TargetType="Border">
+                        <Setter Property="CornerRadius" Value="20"></Setter>
+                    </Style>
+                </Button.Resources>
+                <Button.Background>
+                    <ImageBrush ImageSource="icons/pause.png" ></ImageBrush>
+                </Button.Background>
+            </Button>
+            <Button BorderThickness="0" Width="70" Height="70" VerticalAlignment="Bottom" Margin="0,0,400,0">
+                <Button.Resources>
+                    <Style TargetType="Border">
+                        <Setter Property="CornerRadius" Value="50"></Setter>
+                    </Style>
+                </Button.Resources>
+                <Button.Background>
+                    <ImageBrush ImageSource="icons/back.png" ></ImageBrush>
+                </Button.Background>
+            </Button>
+            <Button BorderThickness="0" Width="70" Height="70" VerticalAlignment="Bottom" Margin="400,0,0,0">
+                <Button.Resources>
+                    <Style TargetType="Border">
+                        <Setter Property="CornerRadius" Value="50"></Setter>
+                    </Style>
+                </Button.Resources>
+                <Button.Background>
+                    <ImageBrush ImageSource="icons/forward.png" ></ImageBrush>
+                </Button.Background>
+            </Button>
+        </Grid>
     </Grid>
 </Window>

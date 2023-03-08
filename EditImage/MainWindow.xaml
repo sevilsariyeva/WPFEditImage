@@ -49,14 +49,14 @@
                     </MenuItem>
                 </MenuItem>
                 <MenuItem Header="View" FontSize="15">
-                    <MenuItem Header="Tiles" FontSize="15"></MenuItem>
+                    <MenuItem Header="Tiles" FontSize="15" Click="MenuItem_Click"></MenuItem>
                     <MenuItem Header="Small Icons" FontSize="15"></MenuItem>
                     <MenuItem Header="Details" FontSize="15"></MenuItem>
                 </MenuItem>
                 <MenuItem Header="About" FontSize="15"></MenuItem>
             </Menu>
         </Canvas>
-        <ListBox Margin="0,30,0,0" BorderThickness="0" Name="photoslistBox" Background="Transparent" ItemsSource="{Binding Images}" ScrollViewer.HorizontalScrollBarVisibility="Disabled">
+        <ListBox Margin="0,30,0,0" BorderThickness="0" Name="photoslistBox" Background="Transparent" ItemsSource="{Binding Images}" ScrollViewer.HorizontalScrollBarVisibility="Disabled" SelectionChanged="photoslistBox_SelectionChanged" >
             <ListBox.ItemsPanel>
                 <ItemsPanelTemplate>
                     <WrapPanel  Orientation="Horizontal"></WrapPanel>
@@ -65,9 +65,9 @@
             <ListBox.ItemTemplate>
                 <DataTemplate>
                     <Border Background="Transparent" BorderThickness="0">
-                        <Grid Background="Transparent" Margin="0,0,8,0" Width="500" Height="300">
+                        <Grid Name="myGrid" Background="Transparent" Margin="0,0,8,0" Width="500" Height="300">
                             <TextBox TextWrapping="Wrap" Foreground="White" FontSize="15" FontWeight="ExtraBlack" BorderThickness="0" HorizontalAlignment="Center" Background="Transparent" Text="{Binding ImageName}"></TextBox>
-                            <Label Background="Transparent" HorizontalContentAlignment="Center" Name="imageLbl" Height="200" Margin="46,50,37,50">
+                            <Label MouseDoubleClick="imageLbl_MouseDoubleClick" Background="Transparent" HorizontalContentAlignment="Center" Name="imageLbl" Height="{Binding ImageHeight}" Width="{Binding ImageWidth}" Margin="46,50,37,50">
                                 <Image Stretch="Uniform" Name="image" Source="{Binding ImagePath}"></Image>
                             </Label>
                         </Grid>
