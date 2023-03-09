@@ -76,20 +76,20 @@ namespace EditImage
                 ImagePath="images/thescream.jpg"
             },
         };
-        private int width;
+        //private int width;
 
-        public int ImageWidth
-        {
-            get { return width; }
-            set { width = value; OnPropertyChanged(); }
-        }
-        private int height;
+        //public int ImageWidth
+        //{
+        //    get { return width; }
+        //    set { width = value; OnPropertyChanged(); }
+        //}
+        //private int height;
 
-        public int ImageHeight
-        {
-            get { return height; }
-            set { height = value; OnPropertyChanged(); }
-        }
+        //public int ImageHeight
+        //{
+        //    get { return height; }
+        //    set { height = value; OnPropertyChanged(); }
+        //}
         public event PropertyChangedEventHandler PropertyChanged;
         public void OnPropertyChanged([CallerMemberName] string name = null)
         {
@@ -100,8 +100,8 @@ namespace EditImage
         public MainWindow()
         {
             InitializeComponent();
-            ImageHeight = 200;
-            ImageWidth = 100;
+            //ImageHeight = 200;
+            //ImageWidth = 100;
             this.DataContext = this;
         }
         public bool TilesClicked { get; set; } = false;
@@ -109,8 +109,8 @@ namespace EditImage
         {
             if (!TilesClicked)
             {
-                ImageWidth = 50;
-                ImageHeight = 100;
+                //ImageWidth = 50;
+                //ImageHeight = 100;
             }
             TilesClicked = !TilesClicked;
         }

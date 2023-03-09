@@ -55,6 +55,7 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="RelayCommand.cs" />
     <Page Include="ImageWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -116,9 +117,6 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="images\monalisa.jpg" />
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="images\sunrise.jpg" />
   </ItemGroup>
   <ItemGroup>
     <Resource Include="images\theharvesters.jpg" />

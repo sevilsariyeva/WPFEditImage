@@ -67,7 +67,7 @@
                     <Border Background="Transparent" BorderThickness="0">
                         <Grid Name="myGrid" Background="Transparent" Margin="0,0,8,0" Width="500" Height="300">
                             <TextBox TextWrapping="Wrap" Foreground="White" FontSize="15" FontWeight="ExtraBlack" BorderThickness="0" HorizontalAlignment="Center" Background="Transparent" Text="{Binding ImageName}"></TextBox>
-                            <Label MouseDoubleClick="imageLbl_MouseDoubleClick" Background="Transparent" HorizontalContentAlignment="Center" Name="imageLbl" Height="{Binding ImageHeight}" Width="{Binding ImageWidth}" Margin="46,50,37,50">
+                            <Label  MouseDoubleClick="imageLbl_MouseDoubleClick" Background="Transparent" HorizontalContentAlignment="Center" Name="imageLbl" Height="{Binding ImageHeight}" Width="{Binding ImageWidth}" Margin="46,50,37,50">
                                 <Image Stretch="Uniform" Name="image" Source="{Binding ImagePath}"></Image>
                             </Label>
                         </Grid>
@@ -77,8 +77,8 @@
         </ListBox>
         <Grid.Background>
             <LinearGradientBrush>
-                <GradientStop Color="#7B3F00" Offset="0"></GradientStop>
-                <GradientStop Color="#C2B280" Offset="1"></GradientStop>
+                <GradientStop Color="DarkGoldenrod" Offset="0"></GradientStop>
+                <GradientStop Color="Wheat" Offset="1"></GradientStop>
             </LinearGradientBrush>
         </Grid.Background>
         

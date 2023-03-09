@@ -8,15 +8,15 @@
         Title="ImageWindow" Height="550" Width="1000">
     <Grid>
         <Grid Name="secondGrid">
-            <Label HorizontalContentAlignment="Center">
-                <Image  Name="secondImage" Source="{Binding Path}" ></Image>
+            <Label HorizontalContentAlignment="Center" VerticalContentAlignment="Center">
+                <Image Name="secondImage" Source="{Binding Path}" ></Image>
             </Label>
-            <Button BorderThickness="0" Width="80" Height="80" HorizontalAlignment="Left" VerticalAlignment="Top">
+            <Button BorderThickness="0" Width="80" Height="80" HorizontalAlignment="Left" VerticalAlignment="Top" Command="{Binding CloseCommand}">
                 <Button.Background>
                     <ImageBrush ImageSource="icons/back.png" ></ImageBrush>
                 </Button.Background>
             </Button>
-            <Button BorderThickness="0" Width="80" Height="80" VerticalAlignment="Bottom" Margin="150,0,0,0">
+            <Button BorderThickness="0" Width="80" Height="80" VerticalAlignment="Bottom" Margin="150,0,0,0" Command="{Binding PlayCommand}">
                 <Button.Resources>
                     <Style TargetType="Border">
                         <Setter Property="CornerRadius" Value="50"></Setter>
@@ -26,7 +26,7 @@
                     <ImageBrush ImageSource="icons/play.png" ></ImageBrush>
                 </Button.Background>
             </Button>
-            <Button BorderThickness="0" Width="80" Height="80" VerticalAlignment="Bottom" Margin="0,0,150,0">
+            <Button BorderThickness="0" Width="80" Height="80" VerticalAlignment="Bottom" Margin="0,0,150,0" Command="{Binding StopCommand}">
                 <Button.Resources>
                     <Style TargetType="Border">
                         <Setter Property="CornerRadius" Value="20"></Setter>
@@ -36,7 +36,7 @@
                     <ImageBrush ImageSource="icons/pause.png" ></ImageBrush>
                 </Button.Background>
             </Button>
-            <Button BorderThickness="0" Width="70" Height="70" VerticalAlignment="Bottom" Margin="0,0,400,0">
+            <Button BorderThickness="0" Width="70" Height="70" VerticalAlignment="Bottom" Margin="0,0,400,0" Command="{Binding BackCommand}">
                 <Button.Resources>
                     <Style TargetType="Border">
                         <Setter Property="CornerRadius" Value="50"></Setter>
@@ -46,7 +46,7 @@
                     <ImageBrush ImageSource="icons/back.png" ></ImageBrush>
                 </Button.Background>
             </Button>
-            <Button BorderThickness="0" Width="70" Height="70" VerticalAlignment="Bottom" Margin="400,0,0,0">
+            <Button BorderThickness="0" Width="70" Height="70" VerticalAlignment="Bottom" Margin="400,0,0,0" Command="{Binding ForwardCommand}">
                 <Button.Resources>
                     <Style TargetType="Border">
                         <Setter Property="CornerRadius" Value="50"></Setter>
