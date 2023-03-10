@@ -55,11 +55,11 @@ namespace EditImage
             list.Add("images/asundayafternoon.jpg");
             list.Add("images/thescream.jpg");
         }
-        
+
         private void Timer_Tick(object sender, EventArgs e)
         {
             if (list.Count == 0)
-            {   
+            {
                 AddImage();
             }
             Path = list[count];
@@ -89,21 +89,21 @@ namespace EditImage
             BackCommand = new RelayCommand((obj) =>
             {
                 timer.Stop();
-                if (count==-1)
+                if (count == -1)
                 {
                     count = 7;
                 }
-                Path=list[count--];
+                Path = list[count--];
                 timer.Start();
             });
             ForwardCommand = new RelayCommand((obj) =>
             {
                 timer.Stop();
-                if (count ==8)
+                if (count == 7)
                 {
                     count = 0;
                 }
-                Path=list[count++];
+                Path = list[count++];
                 timer.Start();
             });
             CloseCommand = new RelayCommand((obj) =>
