@@ -21,7 +21,7 @@ namespace EditImage
     /// <summary>
     /// Interaction logic for MainWindow.xaml
     /// </summary>
-    public partial class MainWindow : Window,INotifyPropertyChanged
+    public partial class MainWindow : Window, INotifyPropertyChanged
     {
         public ObservableCollection<Image> Images { get; set; } = new ObservableCollection<Image>
         {
@@ -49,7 +49,7 @@ namespace EditImage
                 ImageName="Las Meninas",
                 ImagePath="images/lasmeninas.jpg"
             },
-            
+
             new Image
             {
                 Id=5,
@@ -62,7 +62,7 @@ namespace EditImage
                 ImageName="The Last Supper",
                 ImagePath="images/thelastsupper.jpg"
             },
-            
+
             new Image
             {
                 Id=7,
@@ -76,20 +76,20 @@ namespace EditImage
                 ImagePath="images/thescream.jpg"
             },
         };
-        //private int width;
+        private int width;
 
-        //public int ImageWidth
-        //{
-        //    get { return width; }
-        //    set { width = value; OnPropertyChanged(); }
-        //}
-        //private int height;
+        public int ImageWidth
+        {
+            get { return width; }
+            set { width = value; OnPropertyChanged(); }
+        }
+        private int height;
 
-        //public int ImageHeight
-        //{
-        //    get { return height; }
-        //    set { height = value; OnPropertyChanged(); }
-        //}
+        public int ImageHeight
+        {
+            get { return height; }
+            set { height = value; OnPropertyChanged(); }
+        }
         public event PropertyChangedEventHandler PropertyChanged;
         public void OnPropertyChanged([CallerMemberName] string name = null)
         {
@@ -100,8 +100,8 @@ namespace EditImage
         public MainWindow()
         {
             InitializeComponent();
-            //ImageHeight = 200;
-            //ImageWidth = 100;
+            ImageHeight = 200;
+            ImageWidth = 300;
             this.DataContext = this;
         }
         public bool TilesClicked { get; set; } = false;
@@ -109,8 +109,8 @@ namespace EditImage
         {
             if (!TilesClicked)
             {
-                //ImageWidth = 50;
-                //ImageHeight = 100;
+                ImageWidth = 100;
+                ImageHeight = 200;
             }
             TilesClicked = !TilesClicked;
         }
@@ -124,9 +124,26 @@ namespace EditImage
             imageWindow.ShowDialog();
         }
 
-        private void photoslistBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        public bool SmallIconsClicked { get; set; } = false;
+        private void MenuItem_Click_1(object sender, RoutedEventArgs e)
         {
+            if (!SmallIconsClicked)
+            {
+                ImageWidth = 50;
+                ImageHeight = 100;
+            }
+            SmallIconsClicked = !SmallIconsClicked;
+        }
 
+        public bool DetailsClicked { get; set; } = false;
+        private void MenuItem_Click_2(object sender, RoutedEventArgs e)
+        {
+            if (!DetailsClicked)
+            {
+                ImageWidth = 30;
+                ImageHeight = 50;
+            }
+            DetailsClicked = !DetailsClicked;
         }
     }
 }
